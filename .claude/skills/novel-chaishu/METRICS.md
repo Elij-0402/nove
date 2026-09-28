@@ -1,6 +1,6 @@
 # 指标脚本
 
-`scripts/metrics.py` 是拆书和审稿共用的尺子：输入一本 txt、一个章节 md 目录或单个章节 md，输出一份确定性的 JSON。只测机械指标，情绪点、钩子、高光这类语义指标由 Claude 判断，不在脚本里。
+`scripts/metrics.py` 是拆书和审稿共用的尺子：输入一本 txt、一个章节 md 目录或单个章节 md，输出一份确定性的 JSON。只测机械指标；情绪点、钩子、高光这类语义的**判断**由 Claude 产出、**算术**在 [semantics.py](SEMANTICS.md)，都不在本脚本里。
 
 ## 运行
 

@@ -171,22 +171,24 @@ def sentences(paragraph):
             yield m.group()
 
 
+def nearest_rank(values, p):
+    """最近秩法分位数；values 已按升序排好，空列表返回 0。metrics 和 semantics 共用。"""
+    n = len(values)
+    return values[max(math.ceil(p * n) - 1, 0)] if n else 0
+
+
 def length_stats(lengths, buckets=None):
     """数量、平均、分位数（最近秩法，结果都是原始长度值）和可选的分桶占比。"""
     values = sorted(lengths)
     n = len(values)
-
-    def rank(p):
-        return values[max(math.ceil(p * n) - 1, 0)] if n else 0
-
     stats = {
         "数量": n,
         "平均": round(sum(values) / n, 2) if n else 0.0,
         "最小": values[0] if n else 0,
-        "P25": rank(0.25),
-        "中位数": rank(0.5),
-        "P75": rank(0.75),
-        "P90": rank(0.9),
+        "P25": nearest_rank(values, 0.25),
+        "中位数": nearest_rank(values, 0.5),
+        "P75": nearest_rank(values, 0.75),
+        "P90": nearest_rank(values, 0.9),
         "最大": values[-1] if n else 0,
     }
     if buckets:
