@@ -4,10 +4,10 @@
 
 **Blocked by:** 07, 09
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] 从「写章」阶段调用 `/novel`：写下一章，接着自动审稿，然后停在章节关卡
-- [ ] 在关卡处调用 `/novel`：只汇报并等待，不越过关卡
-- [ ] 项目.md 的关卡日志随每次拍板追加记录
-- [ ] 新会话中 Claude 能按 CLAUDE.md 指引从 `/novel` 开始
-- [ ] 7 个 skill 的 description 互不重叠，闲聊时不误触发
+- [x] 从「写章」阶段调用 `/novel`：写下一章，接着自动审稿，然后停在章节关卡
+- [x] 在关卡处调用 `/novel`：只汇报并等待，不越过关卡
+- [x] 项目.md 的关卡日志随每次拍板追加记录
+- [x] 新会话中 Claude 能按 CLAUDE.md 指引从 `/novel` 开始
+- [x] 7 个 skill 的 description 互不重叠，闲聊时不误触发
