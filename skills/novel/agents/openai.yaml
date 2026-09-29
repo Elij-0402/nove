@@ -1,0 +1,3 @@
+interface:
+  display_name: "网文工坊"
+  short_description: "中文网文写作流水线总控:读项目.md 状态机,自动接续到下一关卡"

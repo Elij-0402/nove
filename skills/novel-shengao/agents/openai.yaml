@@ -1,0 +1,3 @@
+interface:
+  display_name: "审稿"
+  short_description: "轻审三维并行加自动返修,全审加基线对比和读者盲评"

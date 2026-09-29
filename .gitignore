@@ -1,2 +1,25 @@
+# 本地写作数据和开发工具，不随技能套件分发
+/作品/
+/对标库/
+/资料/
+/规范/
+/.agents/
+/.claude/
+/.scratch/
+/skills-lock.json
+/novel-workshop/
+
+# Python 缓存与本地环境
 __pycache__/
-*.pyc
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+
+# 编辑器和操作系统文件
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
