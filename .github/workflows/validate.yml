@@ -1,0 +1,34 @@
+name: 验证小说技能套件
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: ${{ matrix.os }} / Python ${{ matrix.python }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ['3.10', '3.14']
+    env:
+      PYTHONUTF8: '1'
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: 检查发布包
+        run: python scripts/check_package.py
+      - name: 度量脚本回归测试
+        run: python -m unittest discover -s skills/novel-chaishu/scripts -p "test_*.py" -v
+      - name: 初始化与安装测试
+        run: python -m unittest discover -s tests -p "test_*.py" -v
+      - name: 检查补丁空白
+        run: git diff --check
